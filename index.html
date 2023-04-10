@@ -76,36 +76,39 @@
 <script>
   "use strict";
 
+  // TODO: declare variables closer to usage / be more specific in children
+
   let titleFontSize = (Math.random()*100).toString()+"px";
   const listItem = $("<li>", {text:"I have the best website!"});
 
-  //give images inside article image-center class
+  // 1.give images inside article image-center class
   $("article img").addClass("image-center");
 
-  //remove last paragraph in article
+  // 2.remove last paragraph in article
   $("article :last-child").remove();
 
-  //set font size of title to be random pixel from 0 to 100
+  // 3.set font size of title to be random pixel from 0 to 100
   $("#title").css("fontSize", titleFontSize);
 
-  //add item to the list
+  // 4.add item to the list
   $("ol").append(listItem);
 
-  //empty aside and put paragraph in
+  // 5.empty aside and put paragraph in
   $("aside").empty().append($("<p>", {text:"I apologize for the silly list."}))
 
-  //change background colors via input
+  // 6.change background colors via input
   $("input").on("change", function(){
     let red = $("input").eq(0).val();
     let green = $("input").eq(2).val();
     let blue = $("input").eq(1).val();
-    $("body").css("backgroundColor", `rgb(${red},${green},${blue})`) }
-    )
+    $("body").css("backgroundColor", `rgb(${red},${green},${blue})`)
+  });
 
-  //remove image upon click
+  // 7.remove image upon click
   $("img").on("click", function(evt) {
     $(evt.target).remove();
   });
+
 
 
 
