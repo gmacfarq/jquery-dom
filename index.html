@@ -74,20 +74,38 @@
 </div>
 <script src="https://unpkg.com/jquery"></script>
 <script>
+  "use strict";
+
   let titleFontSize = (Math.random()*100).toString()+"px";
   const listItem = $("<li>", {text:"I have the best website!"});
 
+  //give images inside article image-center class
   $("article img").addClass("image-center");
+
+  //remove last paragraph in article
   $("article :last-child").remove();
+
+  //set font size of title to be random pixel from 0 to 100
   $("#title").css("fontSize", titleFontSize);
+
+  //add item to the list
   $("ol").append(listItem);
+
+  //empty aside and put paragraph in
   $("aside").empty().append($("<p>", {text:"I apologize for the silly list."}))
+
+  //change background colors via input
   $("input").on("change", function(){
     let red = $("input").eq(0).val();
-    let green = $("input").eq(1).val();
-    let blue = $("input").eq(2).val();
-    $("body").css("backgroundColor", "rgb(red,green,blue)") }
+    let green = $("input").eq(2).val();
+    let blue = $("input").eq(1).val();
+    $("body").css("backgroundColor", `rgb(${red},${green},${blue})`) }
     )
+
+  //remove image upon click
+  $("img").on("click", function(evt) {
+    $(evt.target).remove();
+  });
 
 
 
