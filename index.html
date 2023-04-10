@@ -74,7 +74,23 @@
 </div>
 <script src="https://unpkg.com/jquery"></script>
 <script>
-  // Add your code here!
+  let titleFontSize = (Math.random()*100).toString()+"px";
+  const listItem = $("<li>", {text:"I have the best website!"});
+
+  $("article img").addClass("image-center");
+  $("article :last-child").remove();
+  $("#title").css("fontSize", titleFontSize);
+  $("ol").append(listItem);
+  $("aside").empty().append($("<p>", {text:"I apologize for the silly list."}))
+  $("input").on("change", function(){
+    let red = $("input").eq(0).val();
+    let green = $("input").eq(1).val();
+    let blue = $("input").eq(2).val();
+    $("body").css("backgroundColor", "rgb(red,green,blue)") }
+    )
+
+
+
 </script>
 </body>
 
