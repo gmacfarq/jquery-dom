@@ -39,6 +39,10 @@
       border: solid 2px rebeccapurple;
     }
 
+    .deleteBtn {
+      margin: 5px;
+    }
+
 
 
   </style>
@@ -75,12 +79,19 @@
       evt.preventDefault();
       let newDiv = $("<div>", {text:`${$("#movieTitle").val()}: ${$("#movieRating").val()}`});
       newDiv.addClass("addedReview");
+      newDiv.append($("<button>", {text:"X", class:"deleteBtn"}));
       $("#movieList").append(newDiv);
       console.log("hello");
     }
+    /** delete a review when the button is clicked */
+    function deleteReview(evt){
+      $(evt.target).parent().remove();
+    }
+
+    $("#movieList").on("click", ".deleteBtn", deleteReview);
+
 
     $("button").on("click", addMovie);
-
 
 
   </script>
