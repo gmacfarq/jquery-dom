@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movies App</title>
+  <style>
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #title, #rating, #button {
+      margin: 5px;
+    }
+
+
+    #movieList {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .addedReview {
+      display: block;
+      box-sizing: border-box;
+      width: 400px;
+      font-size: 25px;
+      text-align: center;
+      margin: 15px;
+      border: solid 2px rebeccapurple;
+    }
+
+
+
+  </style>
+</head>
+<body>
+
+  <h1>Rate your Movies</h1>
+  <div id="input">
+    <form action="">
+      <div id="title">
+        <label for="movieTitle">Movie Title</label>
+        <input id="movieTitle" type="text" placeholder="Movie Title here">
+      </div>
+      <div id="rating">
+        <label for="movieRating">Movie Rating</label>
+        <input id="movieRating" type="number" placeholder="(1,2,3...)">
+      </div>
+      <div id="button">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="movieList"></div>
+
+  <script src="https://unpkg.com/jquery"></script>
+  <script>
+    "use strict";
+
+    /** addMovie displays Movie Title and Move Rating inputs and adds them to
+     *  movieList div
+     */
+    function addMovie(evt) {
+      evt.preventDefault();
+      let newDiv = $("<div>", {text:`${$("#movieTitle").val()}: ${$("#movieRating").val()}`});
+      newDiv.addClass("addedReview");
+      $("#movieList").append(newDiv);
+      console.log("hello");
+    }
+
+    $("button").on("click", addMovie);
+
+
+
+  </script>
+</body>
+</html>
